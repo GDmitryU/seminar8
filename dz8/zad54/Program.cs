@@ -38,35 +38,35 @@ void PrintArray(int[,] array)
     }
 }
 
-void SortRowsElements(int [,]array,int rows,int columns)
+void SortRowsElements(int[,] array)
 {
     int newrows = array.GetLength(0);
-    int newcolumns = array.GetLength(1); 
+    int newcolumns = array.GetLength(1);
     int[] row = new int[newcolumns];
-     for (int i = 0; i < newrows; i++)
-     {
-         for (int j = 0; j < newcolumns; j++)
-         {
+    for (int i = 0; i < newrows; i++)
+    {
+        for (int j = 0; j < newcolumns; j++)
+        {
             row[j] = array[i, j];
-         }
-         Array.Sort(row);
-         Array.Reverse(row);
-         for (int j = 0; j < newcolumns; j++)
-         {
-            array[i, j] =row [j];
-         }    
-     }
-     
-}   
+        }
+        Array.Sort(row);
+        Array.Reverse(row);
+        for (int j = 0; j < newcolumns; j++)
+        {
+            array[i, j] = row[j];
+        }
+    }
+
+}
 
 
 Console.Write("Введите количество строк ");
 int rows = int.Parse(Console.ReadLine());
 Console.Write("Введите количество столбцов ");
 int columns = int.Parse(Console.ReadLine());
-int [,]array=new int[rows,columns];
+int[,] array = new int[rows, columns];
 FillArray(array);
 PrintArray(array);
-SortRowsElements(array,rows,columns);
+SortRowsElements(array);
 Console.WriteLine("Новый массив ");
 PrintArray(array);
